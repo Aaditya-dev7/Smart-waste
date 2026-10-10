@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSort | Smart Waste Segregation Guide & Interactive Sorter</title>
+  <meta name="description" content="Learn clean, easy, and smart waste segregation for everyday homes and communities. Interactive bin finder, material guide, and eco impact calculator.">
+  <meta name="keywords" content="waste segregation, recycling guide, how to sort waste, green bin, blue bin, e-waste recycling, clean environment">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  
+  <!-- Google Fonts: Plus Jakarta Sans (Friendly, Clean & Highly Legible) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Soft Organic Background Elements -->
+  <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="EcoSort Home">
+        <span class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2Z"/>
+            <path d="M8.5 14.5c1.5-2.5 4.5-4 7-4.5"/>
+            <path d="M10 9c.5 2 2 4.5 4.5 5.5"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">EcoSort</span>
+          <span class="brand-sub">SMART WASTE GUIDE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+        <a href="#why-sort" class="nav-link">Why It Matters</a>
+        <a href="#simulator" class="nav-link nav-highlight">Interactive Sorter</a>
+        <a href="#bins" class="nav-link">Color Bins Guide</a>
+        <a href="#how-it-works" class="nav-link">Smart Technology</a>
+        <a href="#calculator" class="nav-link">Impact Calculator</a>
+        <a href="#faq" class="nav-link">Common Questions</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#simulator" class="btn-pill-action">
+          <span>Try Sorter</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="pill-badge">
+            <span class="badge-dot"></span>
+            <span>SIMPLE • CLEAN • SUSTAINABLE LIVING</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Waste Segregation Made <span class="highlight-green">Simple & Smart.</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Ever wonder which bin your coffee cup or old battery belongs in? 
+            Proper sorting at home takes just <strong>2 seconds</strong>, prevents landfill fires, 
+            and helps turn everyday trash into valuable new products.
+          </p>
+
+          <div class="hero-cta-buttons">
+            <a href="#simulator" class="btn btn-green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+              Test Any Household Item
+            </a>
+            <a href="#bins" class="btn btn-outline">
+              View the 4 Color Bins
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Quick friendly stat pills -->
+          <div class="hero-quick-facts">
+            <div class="fact-card">
+              <span class="fact-icon">🌱</span>
+              <div class="fact-info">
+                <strong>60% of Waste</strong>
+                <p>Is organic and can be composted into soil</p>
+              </div>
+            </div>
+            <div class="fact-card">
+              <span class="fact-icon">♻️</span>
+              <div class="fact-info">
+                <strong>95% Energy Saved</strong>
+                <p>When recycling aluminum cans vs making new ones</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card / Friendly Visual -->
+        <div class="hero-preview-col">
+          <div class="friendly-sorter-card">
+            <div class="card-top-bar">
+              <span class="status-tag"><span class="pulse-leaf">🍃</span> Smart Assistant</span>
+              <span class="live-label">Ready to Guide</span>
+            </div>
+
+            <div class="demo-drop-box">
+              <div class="demo-item-display" id="heroRotatingItem">
+                <div class="demo-emoji" id="heroEmoji">🥤</div>
+                <div class="demo-details">
+                  <h3 id="heroItemTitle">Plastic Drinking Bottle</h3>
+                  <p id="heroItemTip">Rinse and crush before tossing</p>
+                </div>
+              </div>
+
+              <!-- Animated Arrow to Destination Bin -->
+              <div class="drop-pointer">
+                <span>Goes to</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </div>
+
+              <div class="demo-bin-pill blue-pill" id="heroBinPill">
+                <span class="bin-dot blue"></span>
+                <strong>BLUE BIN</strong> (Dry Recyclables)
+              </div>
+            </div>
+
+            <div class="card-friendly-quote">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Zero confusion. Clear colors. Healthier community.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Why Segregation Matters (Friendly & Relatable) -->
+    <section class="section why-section" id="why-sort">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">WHY IT MATTERS</span>
+          <h2 class="section-title">What Happens When We Mix Everything Up?</h2>
+          <p class="section-desc">
+            When food waste and wet garbage touch clean paper, the whole batch rots and ends up buried in landfills.
+            Here is the difference proper sorting makes in your neighborhood.
+          </p>
+        </div>
+
+        <div class="friendly-compare-grid">
+          <!-- Mixed Garbage Problem -->
+          <div class="friendly-box problem-box">
+            <div class="box-header">
+              <div class="box-icon red-icon">🚫</div>
+              <div>
+                <h3>The Mixed Garbage Problem</h3>
+                <span class="box-subtitle">Throwing everything in one black bag</span>
+              </div>
+            </div>
+            <ul class="clean-check-list bad-list">
+              <li>
+                <span class="icon-tag">✕</span>
+                <div>
+                  <strong>Ruins Clean Recyclables</strong>
+                  <p>Leftover curry, soup, or milk soaks into paper and cardboard, making them impossible to recycle.</p>
+                </div>
+              </li>
+              <li>
+                <span class="icon-tag">✕</span>
+                <div>
+                  <strong>Dangerous Landfill Fires</strong>
+                  <p>Old batteries get crushed inside waste trucks and easily catch fire, releasing toxic smoke.</p>
+                </div>
+              </li>
+              <li>
+                <span class="icon-tag">✕</span>
+                <div>
+                  <strong>Foul Smells & Disease</strong>
+                  <p>Unsorted piles rot rapidly in the open, attracting mosquitoes, stray animals, and pests.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Segregated Waste Solution -->
+          <div class="friendly-box solution-box">
+            <div class="box-header">
+              <div class="box-icon green-icon">✨</div>
+              <div>
+                <h3>Clean Smart Segregation</h3>
+                <span class="box-subtitle">Keeping wet, dry, and batteries separate</span>
+              </div>
+            </div>
+            <ul class="clean-check-list good-list">
+              <li>
+                <span class="icon-tag">✓</span>
+                <div>
+                  <strong>Free Organic Plant Compost</strong>
+                  <p>Kitchen food peels break down naturally into nutrient-rich black soil for local farms and parks.</p>
+                </div>
+              </li>
+              <li>
+                <span class="icon-tag">✓</span>
+                <div>
+                  <strong>New Products from Old Items</strong>
+                  <p>Clean plastic bottles become fleece jackets, and aluminum cans return to supermarket shelves in 60 days.</p>
+                </div>
+              </li>
+              <li>
+                <span class="icon-tag">✓</span>
+                <div>
+                  <strong>Safer for Sanitation Workers</strong>
+                  <p>Sanitation workers are protected from broken glass, toxic battery acid, and infectious hazards.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Smart Sorter (User Friendly & Visual) -->
+    <section class="section interactive-sorter-section" id="simulator">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag pulse-tag">TRY IT OUT</span>
+          <h2 class="section-title">Interactive Household Waste Sorter</h2>
+          <p class="section-desc">
+            Not sure where an item goes? Click any common item below or type what you have at home.
+            See the exact bin and handy tips to prep it!
+          </p>
+        </div>
+
+        <div class="sorter-main-card">
+          <!-- Step 1: Pick an Item -->
+          <div class="sorter-step-col item-picker-col">
+            <div class="col-heading">
+              <span class="step-num">1</span>
+              <h4>Choose or Search Item</h4>
+            </div>
+
+            <!-- Friendly Search Box -->
+            <div class="friendly-search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="wasteSearchInput" placeholder="Type an item (e.g., milk box, peel, battery, foil)..." autocomplete="off">
+            </div>
+
+            <div class="item-buttons-list" id="sampleItemsGrid">
+              <!-- Rendered via app.js -->
+            </div>
+
+            <div class="search-tip-msg" id="searchFeedback" style="display: none;"></div>
+          </div>
+
+          <!-- Step 2: The Inspection & Guidance Box -->
+          <div class="sorter-step-col guidance-col">
+            <div class="col-heading">
+              <span class="step-num">2</span>
+              <h4>Smart Sorter Analysis</h4>
+            </div>
+
+            <div class="inspection-display" id="inspectionDisplay">
+              <div class="item-large-badge">
+                <span class="big-emoji" id="carrierIcon">🥤</span>
+                <div class="big-info">
+                  <h3 id="carrierLabel">Plastic Water Bottle</h3>
+                  <span class="material-kind" id="valResin">Material: Clean PET Plastic (#1)</span>
+                </div>
+              </div>
+
+              <!-- Recommendation Card -->
+              <div class="recommendation-card" id="recommendationCard">
+                <div class="rec-header">
+                  <span class="rec-label">CORRECT BIN DESTINATION:</span>
+                  <div class="destination-badge blue-badge" id="destBadge">
+                    <span class="dest-dot"></span>
+                    <strong id="destBinName">BLUE BIN — DRY RECYCLABLE</strong>
+                  </div>
+                </div>
+
+                <div class="instruction-box">
+                  <span class="inst-title">💡 How to prep before throwing:</span>
+                  <p id="destInstructions">Empty all liquid, give it a quick water rinse, crush it flat to save space, and put the cap back on.</p>
+                </div>
+
+                <div class="eco-benefit-box">
+                  <span class="benefit-title">🌱 What it becomes:</span>
+                  <span class="benefit-text" id="valEndUse">Spun polyester fabric, park benches, or brand new drink bottles.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Color Bins Visual Status -->
+          <div class="sorter-step-col bins-col">
+            <div class="col-heading">
+              <span class="step-num">3</span>
+              <h4>Your 4 Home Bins</h4>
+            </div>
+
+            <div class="color-bins-stack">
+              <!-- Green Bin -->
+              <div class="bin-box green-bin" id="binOrganic">
+                <div class="bin-badge-icon">🟢</div>
+                <div class="bin-text-group">
+                  <strong class="bin-title">Green Bin: Wet & Organic</strong>
+                  <span class="bin-sub">Food scraps, peels, tea bags, garden leaves</span>
+                </div>
+              </div>
+
+              <!-- Blue Bin -->
+              <div class="bin-box blue-bin active" id="binDry">
+                <div class="bin-badge-icon">🔵</div>
+                <div class="bin-text-group">
+                  <strong class="bin-title">Blue Bin: Dry Recyclables</strong>
+                  <span class="bin-sub">Paper, plastic bottles, metal cans, cardboard</span>
+                </div>
+              </div>
+
+              <!-- Amber Bin -->
+              <div class="bin-box amber-bin" id="binEwaste">
+                <div class="bin-badge-icon">🟠</div>
+                <div class="bin-text-group">
+                  <strong class="bin-title">Amber/Red Bin: E-Waste & Hazard</strong>
+                  <span class="bin-sub">Batteries, electronics, cables, bulbs, paints</span>
+                </div>
+              </div>
+
+              <!-- Gray Bin -->
+              <div class="bin-box gray-bin" id="binResidual">
+                <div class="bin-badge-icon">⚪</div>
+                <div class="bin-text-group">
+                  <strong class="bin-title">Gray/Black Bin: General Waste</strong>
+                  <span class="bin-sub">Greasy pizza boxes, sanitary items, dirty wrappers</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tips-banner">
+              <strong>Quick Rule of Thumb:</strong>
+              <p>When in doubt about paper or plastic being oily or contaminated, put it in the Gray bin so it doesn't ruin clean recyclables!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: The 4 Color Bins Complete Guide -->
+    <section class="section color-bins-guide-section" id="bins">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">EASY REFERENCE</span>
+          <h2 class="section-title">The Complete 4-Color Bin Guide</h2>
+          <p class="section-desc">
+            Keep this handy guide on your phone or fridge so your entire household sorts effortlessly.
+          </p>
+        </div>
+
+        <div class="bins-guide-cards-grid">
+          <!-- Card 1: Green Bin -->
+          <div class="guide-card green-theme-card">
+            <div class="guide-top">
+              <span class="bin-color-tag green-tag">GREEN BIN</span>
+              <span class="bin-type-title">Wet / Organic Waste</span>
+            </div>
+            <p class="guide-desc">
+              All biodegradable kitchen and garden matter. Feeds natural microbes to create chemical-free fertilizer.
+            </p>
+            <div class="rules-list-group">
+              <div class="rule-column ok-col">
+                <span class="col-label">✅ PUT IN:</span>
+                <ul>
+                  <li>Vegetable peels & fruit skins</li>
+                  <li>Leftover rice, bread, pasta</li>
+                  <li>Coffee grounds & eggshells</li>
+                  <li>Garden leaves & small twigs</li>
+                </ul>
+              </div>
+              <div class="rule-column no-col">
+                <span class="col-label">❌ DO NOT PUT:</span>
+                <ul>
+                  <li>Plastic bags or wrappers</li>
+                  <li>Pet waste or cat litter</li>
+                  <li>Coated paper cups</li>
+                  <li>Cigarette butts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Blue Bin -->
+          <div class="guide-card blue-theme-card">
+            <div class="guide-top">
+              <span class="bin-color-tag blue-tag">BLUE BIN</span>
+              <span class="bin-type-title">Dry Recyclable Waste</span>
+            </div>
+            <p class="guide-desc">
+              Clean, non-food-stained packaging. Must be kept dry so fibers and plastics can be washed and pelletized.
+            </p>
+            <div class="rules-list-group">
+              <div class="rule-column ok-col">
+                <span class="col-label">✅ PUT IN:</span>
+                <ul>
+                  <li>Clean cardboard boxes</li>
+                  <li>Rinsed plastic water bottles</li>
+                  <li>Soda & soup cans (aluminum/tin)</li>
+                  <li>Glass jars & juice bottles</li>
+                </ul>
+              </div>
+              <div class="rule-column no-col">
+                <span class="col-label">❌ DO NOT PUT:</span>
+                <ul>
+                  <li>Oily takeaway pizza boxes</li>
+                  <li>Broken drinking glasses / mirrors</li>
+                  <li>Potato chip / foil snack packets</li>
+                  <li>Soiled napkins or tissues</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Amber/Red Bin -->
+          <div class="guide-card amber-theme-card">
+            <div class="guide-top">
+              <span class="bin-color-tag amber-tag">AMBER / RED BIN</span>
+              <span class="bin-type-title">E-Waste & Dangerous Items</span>
+            </div>
+            <p class="guide-desc">
+              Items with batteries, circuit boards, mercury, or chemicals. Highly dangerous if compacted in regular trucks!
+            </p>
+            <div class="rules-list-group">
+              <div class="rule-column ok-col">
+                <span class="col-label">✅ PUT IN:</span>
+                <ul>
+                  <li>Old AA / AAA & rechargeable batteries</li>
+                  <li>Dead phones, laptops, cables</li>
+                  <li>Fluorescent tubes & CFL bulbs</li>
+                  <li>Expired medicines & paint cans</li>
+                </ul>
+              </div>
+              <div class="rule-column no-col">
+                <span class="col-label">❌ DO NOT PUT:</span>
+                <ul>
+                  <li>Regular garbage or food scraps</li>
+                  <li>Pressurized full gas cylinders</li>
+                  <li>Wet kitchen towels</li>
+                  <li>Standard paper or cardboard</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Gray Bin -->
+          <div class="guide-card gray-theme-card">
+            <div class="guide-top">
+              <span class="bin-color-tag gray-tag">GRAY / BLACK BIN</span>
+              <span class="bin-type-title">General / Residual Waste</span>
+            </div>
+            <p class="guide-desc">
+              Items that cannot be recycled or composted safely. Sent for clean high-temperature energy recovery.
+            </p>
+            <div class="rules-list-group">
+              <div class="rule-column ok-col">
+                <span class="col-label">✅ PUT IN:</span>
+                <ul>
+                  <li>Dirty napkins & paper towels</li>
+                  <li>Greasy pizza box bases</li>
+                  <li>Multi-layer snack & candy wrappers</li>
+                  <li>Sanitary & hygiene items (wrapped)</li>
+                </ul>
+              </div>
+              <div class="rule-column no-col">
+                <span class="col-label">❌ DO NOT PUT:</span>
+                <ul>
+                  <li>Batteries or electronics (Fire risk!)</li>
+                  <li>Clean recyclable paper or bottles</li>
+                  <li>Fresh organic vegetable scraps</li>
+                  <li>Construction bricks or timber</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: How Modern Smart Centers Support Citizens -->
+    <section class="section tech-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">HOW MODERN CITIES PROCESS IT</span>
+          <h2 class="section-title">From Your Bin to Next-Gen Sorting Hubs</h2>
+          <p class="section-desc">
+            Even when you sort at home, modern recycling facilities use smart sensors to double-check every item.
+          </p>
+        </div>
+
+        <div class="steps-cards-row">
+          <div class="step-card">
+            <div class="step-badge-circle">1</div>
+            <h4>Optical Camera Vision</h4>
+            <p>Smart cameras look at items moving on the belt to instantly tell apart paper, aluminum, and plastics.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge-circle">2</div>
+            <h4>Infrared Sensors</h4>
+            <p>Invisible light beams check the exact plastic type (like milk jugs vs soda bottles) in 15 milliseconds.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge-circle">3</div>
+            <h4>Gentle Air-Jet Blowers</h4>
+            <p>Targeted puffs of compressed air pop the right items into their own bins automatically at high speed.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge-circle">4</div>
+            <h4>Clean Repurposing</h4>
+            <p>Pure materials are melted or pulped to create recycled goods without using virgin raw resources.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Friendly Impact Calculator -->
+    <section class="section calculator-section" id="calculator">
+      <div class="container">
+        <div class="calculator-friendly-box">
+          <div class="calc-copy-side">
+            <span class="section-tag">COMMUNITY CALCULATOR</span>
+            <h2 class="section-title">See the Difference Your Home or Building Makes</h2>
+            <p class="section-desc">
+              Slide to see how much landfill trash your apartment building, office, or neighborhood 
+              can prevent from rotting in landfills each year!
+            </p>
+
+            <!-- Slider 1 -->
+            <div class="friendly-slider-control">
+              <div class="slider-title-row">
+                <label for="intakeSlider">People / Homes Participating:</label>
+                <span class="slider-val-badge" id="intakeDisplay">50 Homes</span>
+              </div>
+              <input type="range" id="intakeSlider" min="5" max="500" value="50" step="5">
+              <div class="slider-range-tips">
+                <span>5 Homes (Small Family)</span>
+                <span>250 Homes (Society)</span>
+                <span>500 Homes (Neighborhood)</span>
+              </div>
+            </div>
+
+            <!-- Slider 2 -->
+            <div class="friendly-slider-control">
+              <div class="slider-title-row">
+                <label for="accuracySlider">How Carefully People Sort:</label>
+                <span class="slider-val-badge" id="accuracyDisplay">85% Clean Sorting</span>
+              </div>
+              <input type="range" id="accuracySlider" min="40" max="98" value="85" step="1">
+              <div class="slider-range-tips">
+                <span>40% (Casual)</span>
+                <span>75% (Consistent)</span>
+                <span>98% (Champion Community)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Card -->
+          <div class="calc-outcome-side">
+            <div class="outcome-header">
+              <span>ANNUAL COMMUNITY IMPACT</span>
+              <span class="leaf-badge">🌿 1 Year Estimate</span>
+            </div>
+
+            <div class="highlight-impact-stat">
+              <span class="stat-caption">Total Landfill Waste Prevented:</span>
+              <div class="big-green-num" id="calcDiverted">15,512 kg</div>
+              <p class="stat-explanation" id="calcCarText">Equivalent to saving 18 metric tons of greenhouse gas emissions!</p>
+            </div>
+
+            <div class="outcome-sub-grid">
+              <div class="sub-stat-card">
+                <span class="sub-label">🌱 Natural Compost Produced</span>
+                <strong id="calcCompost">6,205 kg</strong>
+              </div>
+              <div class="sub-stat-card">
+                <span class="sub-label">♻️ Recycled Bottles & Paper</span>
+                <strong id="calcRecirculated">9,307 kg</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-green btn-full-width" id="exportCalcBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Copy Community Impact Summary
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: FAQ (Common Questions Everyday People Ask) -->
+    <section class="section faq-section" id="faq">
+      <div class="container max-w-850">
+        <div class="section-header-centered">
+          <span class="section-tag">COMMON QUESTIONS</span>
+          <h2 class="section-title">Everyday Waste Questions Answered</h2>
+          <p class="section-desc">
+            Quick answers to the most common sorting doubts people face at home every day.
+          </p>
+        </div>
+
+        <div class="friendly-accordion" id="faqAccordion">
+          <div class="accordion-card">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Do I need to wash plastic bottles with soap before throwing them?</span>
+              <span class="chevron-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <p>
+                <strong>No soap is needed!</strong> Just pour out all liquid and give it a quick 3-second water rinse so no milk or juice residue curdles inside the bin. Crush it flat to save space in your blue bin.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-card">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Can I put an oily pizza box in the Blue paper recycling bin?</span>
+              <span class="chevron-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <p>
+                <strong>No.</strong> Oil and cheese soak into the paper fibers and cannot be separated in water during the paper recycling process. If the top lid is completely clean, tear it off for the Blue bin. The greasy bottom goes into the <em>Gray (General waste)</em> bin or <em>Green (Compost)</em> if made of plain brown unbleached cardboard.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-card">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Why should I NEVER throw old batteries in the regular trash?</span>
+              <span class="chevron-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <p>
+                When waste trucks compress garbage, batteries can easily puncture and spark intense chemical fires that are hard to extinguish. Always place old batteries in an <strong>Amber/Red bin</strong> or return them to local electronics drop-off kiosks.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-card">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>What should I do with mixed snack wrappers (like potato chips)?</span>
+              <span class="chevron-icon"></span>
+            </button>
+            <div class="accordion-body">
+              <p>
+                Snack packets are made by fusing shiny aluminum foil and plastic films together. Because these glued layers cannot be easily separated at home, they go into the <strong>Gray (General Waste)</strong> bin for safe thermal energy generation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: GitHub Pages Deployment Guide (Clean & Easy) -->
+    <section class="section deploy-section" id="deploy">
+      <div class="container">
+        <div class="deploy-white-box">
+          <div class="deploy-intro">
+            <span class="section-tag">FREE GLOBAL HOSTING</span>
+            <h2>Deploy This Page on GitHub Pages in 2 Minutes</h2>
+            <p>This project is pure HTML, CSS, and JavaScript. No servers, no build steps, 100% free hosting.</p>
+          </div>
+
+          <div class="deploy-steps-row">
+            <div class="deploy-col-step">
+              <div class="step-num-pill">Step 1</div>
+              <h4>Push Code to GitHub</h4>
+              <p>Create a GitHub repo and push this folder to your <code>main</code> branch:</p>
+              <div class="code-box font-mono">
+                git remote add origin &lt;URL&gt;<br>
+                git push -u origin main
+              </div>
+            </div>
+
+            <div class="deploy-col-step">
+              <div class="step-num-pill">Step 2</div>
+              <h4>Open Settings ➔ Pages</h4>
+              <p>Go to your GitHub repository in your web browser, click <strong>Settings</strong>, then click <strong>Pages</strong> in the left menu.</p>
+            </div>
+
+            <div class="deploy-col-step">
+              <div class="step-num-pill">Step 3</div>
+              <h4>Select Main Branch & Save</h4>
+              <p>Under <strong>Build and deployment</strong>, choose <strong>Branch: main</strong>, folder <strong>/ (root)</strong>, and click <strong>Save</strong>.</p>
+              <div class="live-url-box font-mono">
+                https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Friendly Footer -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div class="footer-brand-side">
+        <div class="brand-logo">
+          <span class="brand-icon">🌿</span>
+          <span class="brand-title">EcoSort</span>
+        </div>
+        <p class="footer-blurb">
+          Clean spacing, friendly colors, and practical everyday waste segregation guide for healthier communities.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <a href="#hero">Back to Top</a>
+        <a href="#simulator">Interactive Sorter</a>
+        <a href="#bins">4 Bins Guide</a>
+        <a href="#calculator">Impact Calculator</a>
+        <a href="#faq">FAQ</a>
+        <a href="#deploy">Deploy on GitHub</a>
+      </div>
+    </div>
+    <div class="container copyright-row">
+      <p>© 2026 EcoSort. Made with clean white & fresh green design for everyone. Ready for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- Friendly Toast Notification -->
+  <div class="toast-popup" id="toast" role="status" aria-live="polite">
+    <span class="toast-check">✅</span>
+    <span class="toast-text" id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
